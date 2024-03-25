@@ -1,3 +1,3 @@
 export default interface RootState {
-  formData: {};
+  formData: Record<string, string>;
 }
