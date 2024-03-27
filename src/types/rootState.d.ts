@@ -1,3 +1,5 @@
 export default interface RootState {
-  formData: Record<string, string>;
+  firstName?: string;
+  age?: number;
+  userType?: string;
 }
