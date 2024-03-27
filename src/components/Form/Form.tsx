@@ -1,6 +1,11 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { FormTextInput, Button, FormSelect } from '@vfde-react/pattern';
+import {
+  FormTextInput,
+  Button,
+  FormSelect,
+  Headline,
+} from '@vfde-react/pattern';
 import { DevTool } from '@hookform/devtools';
 import RootState from '../../types/rootState';
 import { setFormData, setUserType } from '../../actions';
@@ -19,11 +24,15 @@ const Form: React.FC = () => {
     navigate('/overview');
   };
   return (
-    <div>
-      <h1>Form Page</h1>
+    <>
+      <Headline
+        children="Form Page"
+        level={2}
+        mobileAlign="left"
+        align="left"
+      ></Headline>
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
-        <div>
-          {/* <FormLabel children={<h3>First Name</h3>}></FormLabel> */}
+        <div className="formInput">
           <FormTextInput
             label="First Name"
             placeholder="Enter Your First Name Please"
@@ -32,9 +41,10 @@ const Form: React.FC = () => {
             uid="first-name"
             {...register('firstName', { required: 'First Name is required' })}
           ></FormTextInput>
-          <p className="error">{errors.firstName?.message}</p>
         </div>
-        <div>
+        <p className="error">{errors.firstName?.message}</p>
+
+        <div className="formInput">
           <FormTextInput
             label="Age"
             type="number"
@@ -59,9 +69,10 @@ const Form: React.FC = () => {
               valueAsNumber: true,
             })}
           ></FormTextInput>
-          <p className="error">{errors.age?.message}</p>
         </div>
-        <div>
+        <p className="error">{errors.age?.message}</p>
+
+        <div className="formInput">
           <FormSelect
             label="User Type"
             disabled={false}
@@ -75,12 +86,13 @@ const Form: React.FC = () => {
               dispatch(setUserType({ userType: selectedValue.target.value }))
             }
           ></FormSelect>
-          <p className="error">{errors.userType?.message}</p>
         </div>
+        <p className="error">{errors.userType?.message}</p>
+
         <Button children="Submit"></Button>
       </form>
       <DevTool control={control}></DevTool>
-    </div>
+    </>
   );
 };
 
