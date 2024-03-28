@@ -30,7 +30,7 @@ const Form: React.FC = () => {
         level={2}
         mobileAlign="left"
         align="left"
-      ></Headline>
+      />
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <div className="formInput">
           <FormTextInput
@@ -40,7 +40,7 @@ const Form: React.FC = () => {
             formNoValidate
             uid="first-name"
             {...register('firstName', { required: 'First Name is required' })}
-          ></FormTextInput>
+          />
         </div>
         <p className="error">{errors.firstName?.message}</p>
 
@@ -68,7 +68,7 @@ const Form: React.FC = () => {
                 (fieldValue! > 0 && fieldValue! <= 120) || 'Invalid age',
               valueAsNumber: true,
             })}
-          ></FormTextInput>
+          />
         </div>
         <p className="error">{errors.age?.message}</p>
 
@@ -85,13 +85,13 @@ const Form: React.FC = () => {
             onChange={(selectedValue) =>
               dispatch(setUserType({ userType: selectedValue.target.value }))
             }
-          ></FormSelect>
+          />
         </div>
         <p className="error">{errors.userType?.message}</p>
 
-        <Button children="Submit"></Button>
+        <Button children="Submit" />
       </form>
-      <DevTool control={control}></DevTool>
+      <DevTool control={control} />
     </>
   );
 };
