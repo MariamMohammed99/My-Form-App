@@ -1,6 +1,6 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import initialState from './initialState';
-import { SET_FORM_DATA, RESET_FORM_DATA, SET_USER_TYPE } from '../actions/type';
+import { SET_FORM_DATA, SET_USER_TYPE } from '../actions/type';
 import RootState from '../types/rootState';
 
 const appReducer = (
@@ -11,18 +11,13 @@ const appReducer = (
     case SET_FORM_DATA:
       return {
         ...state,
-       age: action.payload.age,
-       firstName: action.payload.firstName,
+        age: action.payload.age,
+        firstName: action.payload.firstName,
       };
-      case SET_USER_TYPE:
+    case SET_USER_TYPE:
       return {
         ...state,
         userType: action.payload.userType,
-      };
-
-    case RESET_FORM_DATA:
-      return {
-        ...initialState,
       };
 
     default:

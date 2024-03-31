@@ -89,7 +89,11 @@ const Form: React.FC = () => {
         </div>
         <p className="error">{errors.userType?.message}</p>
 
-        <Button children="Submit" />
+        <Button
+          widthBehavior={undefined}
+          children="Submit"
+          id="submit-button"
+        />
       </form>
       <DevTool control={control} />
     </>
